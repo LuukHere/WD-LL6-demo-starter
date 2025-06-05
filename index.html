@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Our local stylesheet -->
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Atlas & Lens - Weddings</title>
 </head>
 
 <body>
@@ -50,8 +51,10 @@
           <div class="testimonial-card testimonial-1">
             <div class="testimonial-number">Testimonial 1</div>
             <div class="testimonial-image">
+              <!-- Testimonial 1 image with alt text -->
               <img
-                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Wedding rings on a pink bow">
             </div>
             <div class="testimonial-content">
               <p class="testimonial-text">"The photos of our wedding are magnificent. Each moment was captured
@@ -87,8 +90,10 @@
               <p class="testimonial-location">Dubai, United Arab Emirates</p>
             </div>
             <div class="testimonial-image">
+              <!-- Testimonial 3 image with alt text -->
               <img
-                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+                src="https://images.pexels.com/photos/265856/pexels-photo-265856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Wedding rings on a pink bow">
             </div>
           </div>
         </div>
@@ -103,45 +108,61 @@
         <!-- Contact Form -->
         <div class="contact-form">
           <h2 class="text-center mb-5">Reach out</h2>
-          <div class="form-group mb-4">
-            <input type="text" class="form-control" id="name" placeholder="Enter your full name *">
+          <!-- Name field with associated label -->
+          <div class="form-group mb-4" id="name-group">
+            <!-- The 'for' attribute matches the input's id -->
+            <label for="name">
+              Enter your full name
+              <span class="required-asterisk">*</span>
+            </label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your full name">
           </div>
 
-          <div class="form-group mb-4">
-            <input type="email" class="form-control" id="email" placeholder="example@email.com *">
+          <!-- Email field with associated label -->
+          <div class="form-group mb-4" id="email-group">
+            <label for="email">
+              Email
+              <span class="required-asterisk">*</span>
+            </label>
+            <input type="email" class="form-control" id="email" placeholder="example@email.com">
           </div>
 
+          <!-- Session Type radio group with label -->
           <div class="form-group mb-4">
-            <p class="small-heading">SESSION TYPE *</p>
+            <label class="small-heading">SESSION TYPE <span class="required-asterisk">*</span></label>
             <div class="radio-options">
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sessionType" id="wedding" value="Wedding">
-                <span class="radio-text">Wedding</span>
+                <label class="radio-text" for="wedding">Wedding</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sessionType" id="engagement" value="Engagement">
-                <span class="radio-text">Engagement</span>
+                <label class="radio-text" for="engagement">Engagement</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sessionType" id="editorial" value="Editorial">
-                <span class="radio-text">Editorial</span>
+                <label class="radio-text" for="editorial">Editorial</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sessionType" id="lifestyle" value="Lifestyle">
-                <span class="radio-text">Lifestyle</span>
+                <label class="radio-text" for="lifestyle">Lifestyle</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="sessionType" id="other" value="Other">
-                <span class="radio-text">Other</span>
+                <label class="radio-text" for="other">Other</label>
               </div>
             </div>
           </div>
 
+          <!-- Other Info field with associated label -->
           <div class="form-group mb-4">
+            <label for="otherInfo">Other session type</label>
             <input type="text" class="form-control" id="otherInfo" placeholder="Please describe your session type">
           </div>
 
+          <!-- How did you hear about me? field with associated label -->
           <div class="form-group mb-4">
+            <label for="hearAbout">How did you hear about me?</label>
             <select class="form-select" id="hearAbout">
               <option selected disabled>How did you hear about me?</option>
               <option value="google">Google</option>
@@ -152,13 +173,20 @@
             </select>
           </div>
 
-          <div class="form-group mb-4">
-            <textarea class="form-control" id="message" rows="5"
-              placeholder="Tell me more about what you're looking for... *"></textarea>
+          <!-- Message field with associated label -->
+          <div class="form-group mb-4" id="message-group">
+            <label for="message">
+              Tell me more about what you're looking for...
+              <span class="required-asterisk">*</span>
+            </label>
+            <textarea class="form-control" id="message" rows="5"></textarea>
           </div>
 
           <div class="text-center mt-4">
-            <button type="submit" class="btn btn-outline-dark"> <i class="bi bi-send"></i> </button>
+            <!-- The button now shows the paper airplane icon and the word 'Submit' -->
+            <button type="submit" class="btn btn-outline-dark">
+              <i class="bi bi-send"></i> Submit
+            </button>
           </div>
         </div>
       </div>
@@ -191,6 +219,31 @@
   </script>
   <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Simple JavaScript to change the asterisk color when answered -->
+  <script>
+    // This script checks if the input or textarea has a value.
+    // If it does, it adds the 'answered' class to the form-group.
+    // This will make the asterisk black using your CSS.
+
+    function checkAnswered(inputId, groupId) {
+      var input = document.getElementById(inputId);
+      var group = document.getElementById(groupId);
+
+      input.addEventListener('input', function() {
+        if (input.value.trim() !== "") {
+          group.classList.add('answered');
+        } else {
+          group.classList.remove('answered');
+        }
+      });
+    }
+
+    // Check for each required field
+    checkAnswered('name', 'name-group');
+    checkAnswered('email', 'email-group');
+    checkAnswered('message', 'message-group');
+  </script>
 </body>
 
 </html>
